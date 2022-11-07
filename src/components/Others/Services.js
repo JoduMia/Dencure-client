@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ImageView from './ImageViewer/ImageView';
 import Ratings from './Ratings';
 
 const Services = () => {
@@ -44,7 +45,8 @@ const Services = () => {
                         {services.map(({_id, title, photo, price, ratings, desc }) => (
                             <div key={_id} className='p-3 rounded border border-gray-50 shadow'>
                                 <div className='overflow-hidden z-40'>
-                                    <img src={photo} alt="service-photos" className='h-[300px] w-full rounded hover:scale-110 duration-500 -z-10' />
+                                    <ImageView photo={photo}/>
+                                    {/* <img src={photo} alt="service-photos" className='h-[300px] w-full rounded hover:scale-110 duration-500 -z-10' /> */}
                                 </div>
                                 <div className='p-1 space-y-2 text-black'>
                                     <h3 className='text-xl font-bold'>{title}</h3>
