@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FaHome } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom'
 import ImageView from '../components/Others/ImageViewer/ImageView';
 import Ratings from '../components/Others/Ratings';
 import Reviews from '../components/Others/Review/Reviews';
+import { AuthContext } from '../contexts/AuthProvider';
 
 const ServiceDetail = () => {
-    const { _id,title, price, ratings, desc, photo, reviews } = useLoaderData();
+    const {user} = useContext(AuthContext);
+    const { _id, title, price, ratings, desc, photo, reviews } = useLoaderData();
     return (
         <div className='container mx-auto md:px-8 py-14'>
             <div className='p-3 rounded border border-gray-50 shadow md:w-1/2 mx-auto'>
@@ -37,7 +39,13 @@ const ServiceDetail = () => {
             </div>
 
             <div className='text-center py-10'>
-                <Link to={`/review/${_id}`}><button className='btn btn-primary'>Add Your review</button></Link>
+                <Link to={`/review/${_id}`}>
+                    <button className='btn btn-primary'>
+                        {
+                            user? "Add Your Review" : "Please, Login to Add Review !!!"
+                        }
+                    </button>
+                </Link>
             </div>
         </div>
     )
