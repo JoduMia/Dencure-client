@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaArrowAltCircleRight } from 'react-icons/fa';
+import { FcViewDetails } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import ImageView from './ImageViewer/ImageView';
 import Ratings from './Ratings';
@@ -42,11 +43,10 @@ const Services = () => {
             {services ? (
                 <div>
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 py-14'>
-                        {services.map(({_id, title, photo, price, ratings, desc }) => (
+                        {services.map(({ _id, title, photo, price, ratings, desc }) => (
                             <div key={_id} className='p-3 rounded border border-gray-50 shadow'>
                                 <div className='overflow-hidden z-40'>
-                                    <ImageView photo={photo}/>
-                                    {/* <img src={photo} alt="service-photos" className='h-[300px] w-full rounded hover:scale-110 duration-500 -z-10' /> */}
+                                    <ImageView photo={photo} />
                                 </div>
                                 <div className='p-1 space-y-2 text-black'>
                                     <h3 className='text-xl font-bold'>{title}</h3>
@@ -55,13 +55,16 @@ const Services = () => {
                                         <Ratings rating={ratings} />
                                     </div>
                                     <p>{truncate(desc)}</p>
-                                    <button className='btn btn-sm btn-primary'>View Details</button>
+                                    <Link to={`/services/${_id}`}>
+                                        <button className='btn btn-sm btn-primary'>View Details
+                                            <FcViewDetails className='text-lg ml-2' /></button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
                     </div>
                     <div className="text-center">
-                        <Link to={'/services'}><button className='btn btn-primary w-[200px]'>See all services <FaArrowAltCircleRight className='text-xl ml-3'/></button></Link>
+                        <Link to={'/services'}><button className='btn btn-primary w-[200px]'>See all services <FaArrowAltCircleRight className='text-xl ml-3' /></button></Link>
                     </div>
                 </div>
             ) : (

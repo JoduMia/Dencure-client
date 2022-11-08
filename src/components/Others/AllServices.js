@@ -1,5 +1,6 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom'
+import { FcViewDetails } from 'react-icons/fc';
+import { Link, useLoaderData } from 'react-router-dom'
 import ImageView from './ImageViewer/ImageView';
 import Ratings from './Ratings';
 
@@ -24,7 +25,7 @@ const AllServices = () => {
                     {services.map(({ _id, title, photo, price, ratings, desc }) => (
                         <div key={_id} className='p-3 rounded border border-gray-50 shadow'>
                             <div className='overflow-hidden z-40'>
-                                    <ImageView  photo={photo} />
+                                <ImageView photo={photo} />
                             </div>
                             <div className='p-1 space-y-2 text-black'>
                                 <h3 className='text-xl font-bold'>{title}</h3>
@@ -33,7 +34,10 @@ const AllServices = () => {
                                     <Ratings rating={ratings} />
                                 </div>
                                 <p>{truncate(desc)}</p>
-                                <button className='btn btn-sm btn-primary'>View Details</button>
+                                <Link to={`/services/${_id}`}>
+                                    <button className='btn btn-sm btn-primary'>View Details
+                                        <FcViewDetails className='text-lg ml-2' /></button>
+                                </Link>
                             </div>
                         </div>
                     ))}
