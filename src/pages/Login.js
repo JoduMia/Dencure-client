@@ -31,25 +31,7 @@ const Login = () => {
                 console.log(res.user);
             })
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     return (
         <div className='flex justify-center items-center md:h-screen'>
             <div className='grid md:grid-cols-2 md:px-6'>

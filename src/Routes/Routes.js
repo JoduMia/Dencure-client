@@ -2,6 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, Route } from "react-rout
 import AllServices from "../components/Others/AllServices";
 import Services from "../components/Others/Services";
 import Main from "../layouts/Main/Main";
+import AddReview from "../pages/AddReview";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ServiceDetail from "../pages/ServiceDetail";
@@ -11,6 +12,7 @@ export const routes = createBrowserRouter(createRoutesFromElements(
         <Route index element={<Services />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/review/:id" element={<AddReview />} />
 
         <Route path="/services"
             element={<AllServices />}

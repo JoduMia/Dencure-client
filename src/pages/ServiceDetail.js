@@ -6,7 +6,7 @@ import Ratings from '../components/Others/Ratings';
 import Reviews from '../components/Others/Review/Reviews';
 
 const ServiceDetail = () => {
-    const { title, price, ratings, desc, photo, reviews } = useLoaderData();
+    const { _id,title, price, ratings, desc, photo, reviews } = useLoaderData();
     return (
         <div className='container mx-auto md:px-8 py-14'>
             <div className='p-3 rounded border border-gray-50 shadow md:w-1/2 mx-auto'>
@@ -37,7 +37,7 @@ const ServiceDetail = () => {
             </div>
 
             <div className='text-center py-10'>
-                <Link to={'/review'}><button className='btn btn-primary'>Add Your review</button></Link>
+                <Link to={`/review/${_id}`}><button className='btn btn-primary'>Add Your review</button></Link>
             </div>
         </div>
     )
