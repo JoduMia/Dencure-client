@@ -14,7 +14,7 @@ const Ratings = ({rating}) => {
     })
   return (
     <div className='flex items-center gap-1'>
-        Ratings: {starRatings}
+        {starRatings}
     </div>
   )
 }
