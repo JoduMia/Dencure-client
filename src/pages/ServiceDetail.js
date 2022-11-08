@@ -35,6 +35,10 @@ const ServiceDetail = () => {
                     }
                 </div>
             </div>
+
+            <div className='text-center py-10'>
+                <Link to={'/review'}><button className='btn btn-primary'>Add Your review</button></Link>
+            </div>
         </div>
     )
 }
