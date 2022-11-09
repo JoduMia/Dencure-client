@@ -28,13 +28,10 @@ const Header = () => {
             user &&
             <div className='flex items-center justify-between'>
               <li tabIndex="0">
-                <Link to={'/orders'}>Orders </Link>
-              </li>
-              <li tabIndex="0">
                 <Link to={'/service'}>Add service </Link>
               </li>
               <li tabIndex="0">
-                <Link to={'/orders'}>My reviews </Link>
+                <Link to={'/myreviews'}>My reviews </Link>
               </li>
             </div>
           }

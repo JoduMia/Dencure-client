@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useParams } from 'react-router-dom';
 import review from '../assets/images/review.png'
 import { AuthContext } from '../contexts/AuthProvider';
@@ -14,20 +15,25 @@ const handleSubmit = (e) => {
     const message = form.message.value;
     const name = form.name.value;
     const rating = form.rating.value;
+    const brief = form.brief.value;
     form.reset();
 
+    const sendingData = {id,name,message,rating,brief, email: user?.email, img: user?.photoURL || 'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'};
+
     fetch(`http://localhost:4000/addreview/${id}`, {
-        method: 'PATCH',
+        method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({id,name,message,rating, email: user?.email, img: user?.photoURL || 'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'})
+        body: JSON.stringify(sendingData)
     })
     .then(res => {
-        console.log(res);
         return res.json()
     })
     .then(data => {
+        if(data.status === 'successful'){
+            toast.success('Successfully updated your review !!!')
+        }
     })
 };
 
@@ -45,13 +51,19 @@ const handleSubmit = (e) => {
                     </div>
 
                     <div className='flex flex-col'>
-                        <label htmlFor="Name" className='text-gray-400 font-semibold'>Ratings</label>
-                        <input type="number" max={'5'} min="0" name='rating' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
+                        <label htmlFor="Name" className='text-gray-400 font-semibold'>Short Review</label>
+                        <textarea type="text" name='brief' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
+                    </div>
+
+
+                    <div className='flex flex-col'>
+                        <label htmlFor="Name" className='text-gray-400 font-semibold'>Say something briefly</label>
+                        <textarea type="text" name='message' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
                     </div>
 
                     <div className='flex flex-col'>
-                        <label htmlFor="Name" className='text-gray-400 font-semibold'>Review</label>
-                        <textarea type="text" name='message' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
+                        <label htmlFor="Name" className='text-gray-400 font-semibold'>Ratings</label>
+                        <input type="number" max={'5'} min="0" name='rating' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
                     </div>
 
                     <input type='submit' value={'Review Us'} className='bg-[#0ed39e] w-full rounded py-2 font-semibold text-xl text-white hover:bg-[#09e5ab] duration-300' />

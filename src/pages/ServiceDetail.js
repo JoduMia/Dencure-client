@@ -8,7 +8,7 @@ import { AuthContext } from '../contexts/AuthProvider';
 
 const ServiceDetail = () => {
     const {user} = useContext(AuthContext);
-    const { _id, title, price, ratings, desc, photo, reviews } = useLoaderData();
+    const { _id, title, price, ratings, desc, photo } = useLoaderData();
     return (
         <div className='container mx-auto md:px-8 py-14'>
             <div className='p-3 rounded border border-gray-50 shadow md:w-1/2 mx-auto'>
@@ -31,10 +31,8 @@ const ServiceDetail = () => {
 
             <div>
                 <h1 className='text-center text-2xl md:text-4xl font-bold text-gray-900 capitalize py-10'>What they're saying</h1>
-                <div className='grid md:grid-cols-3 gap-4'>
-                    {
-                        reviews.map(view => <Reviews key={view.updated} view={view} />)
-                    }
+                <div>
+                    <Reviews id={_id}/>
                 </div>
             </div>
 

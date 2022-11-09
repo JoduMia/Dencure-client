@@ -1,13 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerPhoto from '../assets/images/register.png'
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
-    const {user, signWithEmailPass, googleSignIn} = useContext(AuthContext);
-    console.log(user);
+    const [error, setError] = useState('');
+    const { signWithEmailPass, googleSignIn,setLoading } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/'
 
     const handleSumit = (event) => {
         event.preventDefault();
@@ -18,20 +23,36 @@ const Login = () => {
 
         //sign in with email and password
         signWithEmailPass(email, password)
-        .then(res => {
-            const user = res.user;
-            console.log(user);
-        })
+            .then(res => {
+                const user = res.user;
+                navigate(from, { replace: true });
+                toast.success('Successfully logged in!!!')
+                console.log(user);
+            })
+            .catch(error => {
+                setError(error.message);
+            })
     };
 
     //Handle google login
     const handleGoogleSignIn = () => {
+        setError('');
         googleSignIn()
-            .then(res => {
-                console.log(res.user);
+            .then(() => {
+                navigate(from, { replace: true });
+                toast.success('Successfully logged in!!!')
+            })
+            .catch(error => {
+                setError(error.message);
+                toast.error(error.message);
+            })
+            .finally(() => {
+                setLoading(false)
             })
     };
-    
+
+    console.log('kemon acho');
+
     return (
         <div className='flex justify-center items-center md:h-screen'>
             <div className='grid md:grid-cols-2 md:px-6'>
@@ -50,6 +71,8 @@ const Login = () => {
                             <label htmlFor="Name" className='text-gray-400 font-semibold'>Password</label>
                             <input type="password" name='password' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
                         </div>
+
+                        <p className='text-red-600 font-semibold text-lg'>{error}</p>
 
                         <input type='submit' value={'Login'} className='bg-[#0ed39e] w-full rounded py-2 font-semibold text-xl text-white hover:bg-[#09e5ab] duration-300' />
 
