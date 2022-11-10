@@ -11,7 +11,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/service3`)
+        fetch(`https://assignment-11-server-amber.vercel.app/service3`)
             .then(res => {
                 if (res.status !== 200) {
                     return

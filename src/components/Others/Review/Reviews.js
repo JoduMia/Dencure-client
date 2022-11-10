@@ -7,7 +7,7 @@ const Reviews = ({ id }) => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/review/${id}`)
+        fetch(`https://assignment-11-server-amber.vercel.app/review/${id}`)
             .then(res => {
                 console.log(res);
                 return res.json();
@@ -17,7 +17,7 @@ const Reviews = ({ id }) => {
                 setReviews(data)
             })
     }, [id])
-    
+
     return (
 
         <div className='grid md:grid-cols-3 gap-4'>

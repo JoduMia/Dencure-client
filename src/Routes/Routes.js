@@ -23,12 +23,12 @@ export const routes = createBrowserRouter(createRoutesFromElements(
 
         <Route path="/services"
             element={<AllServices />}
-            loader={() => fetch(`http://localhost:4000/services`)}
+            loader={() => fetch(`https://assignment-11-server-amber.vercel.app/services`)}
         />
 
         <Route path="/services/:id"
             element={<ServiceDetail />}
-            loader={({params}) => fetch(`http://localhost:4000/services/${params.id}`)}
+            loader={({params}) => fetch(`https://assignment-11-server-amber.vercel.app/services/${params.id}`)}
         />
 
     </Route>

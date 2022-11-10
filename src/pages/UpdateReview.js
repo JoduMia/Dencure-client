@@ -13,7 +13,7 @@ const UpadateReview = () => {
 
     // get all the data form mongodb------>
     useEffect(() => {
-        fetch(`http://localhost:4000/getreview/${id}`)
+        fetch(`https://assignment-11-server-amber.vercel.app/getreview/${id}`)
             .then(res => res.json())
             .then(data => {
                 setReview(data);
@@ -35,7 +35,7 @@ const UpadateReview = () => {
 
         const sendingData = {author, review, message, heading, avatar};
 
-        fetch(`http://localhost:4000/updatereview/${id}`, {
+        fetch(`https://assignment-11-server-amber.vercel.app/updatereview/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

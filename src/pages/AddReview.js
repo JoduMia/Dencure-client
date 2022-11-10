@@ -22,7 +22,7 @@ const handleSubmit = (e) => {
 
     const sendingData = {id,name,message,rating,brief, email: user?.email, img: user?.photoURL || 'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'};
 
-    fetch(`http://localhost:4000/addreview/${id}`, {
+    fetch(`https://assignment-11-server-amber.vercel.app/addreview/${id}`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
