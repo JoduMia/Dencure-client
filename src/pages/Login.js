@@ -51,7 +51,6 @@ const Login = () => {
             })
     };
 
-    console.log('kemon acho');
 
     return (
         <div className='flex justify-center items-center md:h-screen'>
