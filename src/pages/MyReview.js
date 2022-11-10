@@ -72,7 +72,7 @@ const MyReview = () => {
                 <p className='py-3 text-xl font-bold'>{author}</p>
 
                 <div className='flex items-center justify-center gap-3'>
-                  <button className='btn btn-sm btn-primary block'>Update</button>
+                  <Link to={`/update/${_id}`}><button className='btn btn-sm btn-primary block'>Update</button></Link>
 
                   <button onClick={() => handleDelete(_id)} className='btn btn-sm btn-secondary block'>Delete</button>
                 </div>
