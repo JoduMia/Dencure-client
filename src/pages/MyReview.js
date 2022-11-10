@@ -36,7 +36,7 @@ const MyReview = () => {
 
   useEffect(() => {
     // setLoading(true)
-    fetch(`http://localhost:4000/reviews/?email=${user?.email}`,{
+    fetch(`https://assignment-11-server-amber.vercel.app/reviews/?email=${user?.email}`,{
       headers: {
         authorization: `Bearer ${localStorage.getItem('dencareLoginToken')}`
       }
@@ -61,7 +61,7 @@ const MyReview = () => {
   }, [setLoading, user?.email,logOut])
 
   const sort = () => {
-    fetch(`http://localhost:4000/reviewssort/?email=${user?.email}`)
+    fetch(`https://assignment-11-server-amber.vercel.app/reviewssort/?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);

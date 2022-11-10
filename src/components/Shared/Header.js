@@ -24,6 +24,7 @@ const Header = () => {
       <div className="flex-none text-black hidden md:block">
         <ul className="menu menu-horizontal p-0">
           <li><Link to={'/'}>Home</Link></li>
+          <li><Link to={'/servicepagi'}>Services</Link></li>
           {
             user &&
             <div className='flex items-center justify-between'>

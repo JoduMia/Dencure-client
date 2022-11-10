@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import MyReview from "../pages/MyReview";
 import Register from "../pages/Register";
 import ServiceDetail from "../pages/ServiceDetail";
+import ServiceWithPagi from "../pages/ServicewithPagi";
 import UpadateReview from "../pages/UpdateReview";
 import PrivateRoutes from "./PrivateRoutes";
 
@@ -16,6 +17,7 @@ export const routes = createBrowserRouter(createRoutesFromElements(
         <Route index element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/servicepagi" element={<ServiceWithPagi />} />
         <Route path="/myreviews" element={<PrivateRoutes><MyReview /></PrivateRoutes>} />
         <Route path="/addservice" element={<AddService />} />
         <Route path="/review/:id" element={<PrivateRoutes><AddReview /></PrivateRoutes>} />

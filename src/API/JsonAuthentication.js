@@ -1,5 +1,5 @@
 export const jsonTokenAuthenticaion = (user) => {
-    return fetch(`http://localhost:4000/tokencollection`, {
+    return fetch(`https://assignment-11-server-amber.vercel.app/tokencollection`, {
         method: `POST`,
         headers: {
             'content-type': 'application/json'

@@ -43,8 +43,8 @@ const Services = () => {
     return (
         <>
             {services ? (
-                <div>
-                    <div className='text-2xl md:text-5xl font-bold text-center text-gray-800 pt-10'>Our services</div>
+                <div className='container mx-auto lg:px-10'>
+                    <div className='text-2xl md:text-5xl font-bold text-center pt-10'>Our services</div>
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5 pt-5 pb-14'>
                         {services.map(({ _id, title, photo, price, ratings, desc }) => (
                             <div key={_id} className='p-3 rounded border border-gray-50 shadow'>
