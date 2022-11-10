@@ -51,11 +51,11 @@ const Banner = () => {
 
                     <div className="absolute transform -translate-y-1/2 gap-3 top-1/2 left-12 text-white z-20 space-y-4">
                         <div className='text-3xl md:text-5xl font-extrabold'>
-                            <h1>Affordabe</h1>
-                            <h1>Price for</h1>
-                            <h1>Car Services</h1>
+                            <h1>Healthy teeth</h1>
+                            <h1>Fresh Smile</h1>
+                            <h1>Be confident</h1>
                         </div>
-                        <p className='w-1/2 text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
+                        <p className='w-1/2 text-white'>There are many variations of treatment of  available, but the majority have suffered alteration in some form</p>
                         <div className='space-x-3'>
                             <button className="btn btn-sm btn-warning">Warning</button>
                             <button className="btn btn-sm btn-outline btn-warning">Warning</button>
