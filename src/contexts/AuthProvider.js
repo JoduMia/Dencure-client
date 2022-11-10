@@ -32,6 +32,7 @@ const AuthProvider = ({children}) => {
   };
 
   const emailPassRegister = (email,password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 

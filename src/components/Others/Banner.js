@@ -21,25 +21,7 @@ const datas = [
         id: 3,
         next: 4,
         prev: 2
-    },
-    // {
-    //     img: img4,
-    //     id: 4,
-    //     next: 5,
-    //     prev: 3
-    // },
-    // {
-    //     img: img5,
-    //     id: 5,
-    //     next: 6,
-    //     prev: 4
-    // },
-    // {
-    //     img: img6,
-    //     id: 6,
-    //     next: 1,
-    //     prev: 5
-    // },
+    }
 ]
 
 const Banner = () => {

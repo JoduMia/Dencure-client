@@ -79,7 +79,7 @@ const Register = () => {
             </div>
         </div>
         :
-        <div>Loading....</div>
+        <div className='flex justify-center items-center h-[300px]'><progress className="progress w-56"></progress></div>
     )
 }
 
