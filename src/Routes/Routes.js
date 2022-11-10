@@ -6,6 +6,7 @@ import AddService from "../pages/AddService";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyReview from "../pages/MyReview";
+import NotFound from "../pages/NotFound";
 import Register from "../pages/Register";
 import ServiceDetail from "../pages/ServiceDetail";
 import ServiceWithPagi from "../pages/ServicewithPagi";
@@ -32,6 +33,8 @@ export const routes = createBrowserRouter(createRoutesFromElements(
             element={<ServiceDetail />}
             loader={({params}) => fetch(`https://assignment-11-server-amber.vercel.app/services/${params.id}`)}
         />
+
+        <Route path="*" element={<NotFound />}/>
 
     </Route>
 ))

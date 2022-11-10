@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar py-4 shadow">
+    <div className="navbar bg-[#eef5f2] py-4 shadow">
       <div className="flex-1 h-[50px]">
         <Link to='/' className="btn btn-ghost normal-case text-xl">
           <img src={logo} alt="" className='h-[50px]' />
@@ -42,7 +42,7 @@ const Header = () => {
       <div className="flex-none gap-2">
         <div className="form-control hidden md:block">
           <div className='flex items-center p-2 border border-gray-300 rounded-lg'>
-            <input type="text" placeholder="Search" className='focus:outline-none bg-white' />
+            <input type="text" placeholder="Search" className='focus:outline-none bg-[#eef5f2]' />
             <BsSearch />
           </div>
         </div>
