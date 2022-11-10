@@ -1,9 +1,9 @@
 import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom";
 import AllServices from "../components/Others/AllServices";
-import Services from "../components/Others/Services";
 import Main from "../layouts/Main/Main";
 import AddReview from "../pages/AddReview";
 import AddService from "../pages/AddService";
+import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyReview from "../pages/MyReview";
 import Register from "../pages/Register";
@@ -13,7 +13,7 @@ import PrivateRoutes from "./PrivateRoutes";
 
 export const routes = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Main />}>
-        <Route index element={<Services />} />
+        <Route index element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/myreviews" element={<PrivateRoutes><MyReview /></PrivateRoutes>} />
