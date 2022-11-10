@@ -35,13 +35,15 @@ const Login = () => {
                             console.log(data);
                             localStorage.setItem('dencareLoginToken', data.token)
                             navigate(from, { replace: true });
-                            toast.success('Successfully logged in!!!')
+                            toast.success('Successfully logged in!!!');
                         })
                         .catch(err => toast.error(err.message))
                 }
             })
             .catch(error => {
                 setError(error.message);
+            }).finally(() => {
+                setLoading(false)
             })
     };
 

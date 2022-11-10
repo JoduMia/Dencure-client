@@ -10,7 +10,7 @@ import useTitle from '../hooks/useTitle';
 
 const Register = () => {
     useTitle('Register');
-    const { emailPassRegister,loading } = useContext(AuthContext);
+    const { emailPassRegister,loading,setLoading } = useContext(AuthContext);
 
     //create user at firebase with email and password
     const createUser = (event) => {
@@ -33,10 +33,13 @@ const Register = () => {
                             console.log(data);
                             localStorage.setItem('dencareLoginToken', data.token)
                             toast.success('Successfully logged in!!!')
+                            setLoading(false)
                         })
                         .catch(err => toast.error(err.message))
                 }
-
+            }).catch(err => console.log(err.message))
+            .finally(() => {
+                setLoading(false)
             })
     };
 
