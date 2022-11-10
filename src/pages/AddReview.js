@@ -65,7 +65,7 @@ const handleSubmit = (e) => {
 
                     <div className='flex flex-col'>
                         <label htmlFor="Name" className='text-gray-400 font-semibold'>Ratings</label>
-                        <input type="number" max={'5'} min="0" name='rating' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
+                        <input type="number" max={'5'} min="0" step='any' name='rating' className='bg-white border border-gray-400 py-1 px-3 text-gray-800 focus:outline-none rounded' required />
                     </div>
 
                     <input type='submit' value={'Review Us'} className='bg-[#0ed39e] w-full rounded py-2 font-semibold text-xl text-white hover:bg-[#09e5ab] duration-300' />

@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useContext } from 'react';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import updatePhoto from '../assets/images/update.png'
-import { AuthContext } from '../contexts/AuthProvider';
 import useTitle from '../hooks/useTitle';
 
 const UpadateReview = () => {
-    const {setLoading} = useContext(AuthContext);
     const [review, setReview] = useState({});
     useTitle('Update Review')
     const { id } = useParams();
@@ -22,7 +19,7 @@ const UpadateReview = () => {
                 setReview(data);
             })
             .catch(err => console.log(err.message))
-    }, [id, setLoading])
+    }, [id])
 
 
     //pathcing data to update the review in mongodb.
@@ -57,10 +54,10 @@ const UpadateReview = () => {
 
     return (<div className='flex justify-center items-center md:h-auto bg-gray-100'>
         <div className='grid md:grid-cols-2 md:px-6'>
-            <div>
+            <div className='flex justify-center items-center'>
                 <img src={updatePhoto} alt="registerPhoto" />
             </div>
-            <div className='p-5'>
+            <div className='p-5 flex justify-center items-center'>
                 <form onSubmit={updateReview} className='space-y-4 border border-gray-300 md:w-2/3 mx-auto p-5 rounded'>
                     <h3 className='text-2xl font-bold text-gray-500'>Update Review</h3>
                     <div className='flex flex-col'>
@@ -90,8 +87,6 @@ const UpadateReview = () => {
                     </div>
 
                     <input type='submit' value={'Update Review'} className='bg-[#0ed39e] w-full rounded py-2 font-semibold text-xl text-white hover:bg-[#09e5ab] duration-300' />
-
-                    <Link to={`/services/${id}`} className='text-blue-600 font-semibold py-2 block hover:text-[#09e5ab] text-right'>Back to Review page</Link>
                 </form>
             </div>
         </div>

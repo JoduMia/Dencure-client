@@ -17,10 +17,7 @@ const Reviews = ({ id }) => {
                 setReviews(data)
             })
     }, [id])
-
-
-
-
+    
     return (
 
         <div className='grid md:grid-cols-3 gap-4'>
