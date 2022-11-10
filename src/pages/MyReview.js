@@ -60,21 +60,12 @@ const MyReview = () => {
       })
   }, [setLoading, user?.email,logOut])
 
-  const sort = () => {
-    fetch(`https://assignment-11-server-amber.vercel.app/reviewssort/?email=${user?.email}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-          setReviews(data.data);
-      })
-  };
 
   return (
     <div className='container mx-auto md:px-10 py-14 px-6'>
       {reviews.length > 0 &&
       <div>
         <h1 className='text-center md:text-4xl text-2xl font-bold pb-8 capitalize text-gray-600'>My reviews On dencure</h1>
-        <div className='flex justify-end py-5'><button onClick={sort} className='btn btn-sm btn-primary block shadow-md'>Sort Descendingly</button></div>
       </div>}
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>

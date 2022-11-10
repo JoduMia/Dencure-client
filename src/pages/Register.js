@@ -1,7 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { jsonTokenAuthenticaion } from '../API/JsonAuthentication';
 import registerPhoto from '../assets/images/register.png'
@@ -70,13 +69,6 @@ const Register = () => {
                         <Link to='/login' className='text-right block text-blue-500 font-semibold hover:text-[#0ed39e] duration-300'>Already have an account?</Link>
                         <input type='submit' value={'Signup'} className='bg-[#0ed39e] w-full rounded py-2 font-semibold text-xl text-white hover:bg-[#09e5ab] duration-300' />
 
-                        <div className='flex h-[30px] items-baseline'>
-                            <p className='w-[45%] h-[1px] border'></p>
-                            <p className='w-[10%] text-center  text-xl text-gray-500'>or</p>
-                            <p className='w-[45%] border h-[1px]'></p>
-                        </div>
-
-                        <button className='bg-[#d33f0e] w-full rounded py-2 font-semibold text-xl text-white flex items-center gap-2 justify-center hover:bg-[#e54409] duration-300'><FaGoogle className='text-lg' />Login</button>
                     </form>
                 </div>
             </div>
