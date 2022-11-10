@@ -6,8 +6,10 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import Ratings from '../components/Others/Ratings';
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const MyReview = () => {
+  useTitle('My Reviews');
   const { user, setLoading } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
@@ -40,8 +42,10 @@ const MyReview = () => {
         if (data.status === 'success') {
           console.log(data);
           setReviews(data.data);
+          setLoading(false)
         } else {
           setReviews('');
+          setLoading(false);
         }
       })
   }, [setLoading, user?.email])

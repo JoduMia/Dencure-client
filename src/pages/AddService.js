@@ -2,8 +2,11 @@ import React from 'react'
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import serviceImg from '../assets/images/service.png';
+import useTitle from '../hooks/useTitle';
 
 const AddService = () => {
+    useTitle('Add Services');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

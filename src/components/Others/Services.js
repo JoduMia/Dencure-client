@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { FaArrowAltCircleRight } from 'react-icons/fa';
 import { FcViewDetails } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import ImageView from './ImageViewer/ImageView';
 import Ratings from './Ratings';
 
 const Services = () => {
+    useTitle('Home')
     const [services, setServices] = useState([]);
 
     useEffect(() => {

@@ -6,8 +6,10 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerPhoto from '../assets/images/register.png'
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login')
     const [error, setError] = useState('');
     const { signWithEmailPass, googleSignIn,setLoading } = useContext(AuthContext);
     const navigate = useNavigate();

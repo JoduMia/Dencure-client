@@ -4,8 +4,10 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import registerPhoto from '../assets/images/register.png'
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register');
     const {emailPassRegister} = useContext(AuthContext);
 
     //create user at firebase with email and password

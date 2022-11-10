@@ -1,10 +1,12 @@
 import React from 'react'
 import { FcViewDetails } from 'react-icons/fc';
 import { Link, useLoaderData } from 'react-router-dom'
+import useTitle from '../../hooks/useTitle';
 import ImageView from './ImageViewer/ImageView';
 import Ratings from './Ratings';
 
 const AllServices = () => {
+    useTitle('Services')
     const services = useLoaderData();
     console.log(services);
 

@@ -4,8 +4,10 @@ import toast from 'react-hot-toast';
 import { Link, useParams } from 'react-router-dom';
 import review from '../assets/images/review.png'
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const AddReview = () => {
+    useTitle('Add Review')
     const {user} = useContext(AuthContext);
     const {id} = useParams();
 

@@ -5,8 +5,11 @@ import ImageView from '../components/Others/ImageViewer/ImageView';
 import Ratings from '../components/Others/Ratings';
 import Reviews from '../components/Others/Review/Reviews';
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const ServiceDetail = () => {
+    useTitle('Service Details');
+
     const {user} = useContext(AuthContext);
     const { _id, title, price, ratings, desc, photo } = useLoaderData();
     return (
