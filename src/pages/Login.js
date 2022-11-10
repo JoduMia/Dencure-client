@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { jsonTokenAuthenticaion } from '../API/JsonAuthentication';
 import registerPhoto from '../assets/images/register.png'
 import { AuthContext } from '../contexts/AuthProvider';
 import useTitle from '../hooks/useTitle';
@@ -11,7 +12,7 @@ import useTitle from '../hooks/useTitle';
 const Login = () => {
     useTitle('Login')
     const [error, setError] = useState('');
-    const { signWithEmailPass, googleSignIn,setLoading } = useContext(AuthContext);
+    const { signWithEmailPass, googleSignIn, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/'
@@ -26,10 +27,18 @@ const Login = () => {
         //sign in with email and password
         signWithEmailPass(email, password)
             .then(res => {
-                const user = res.user;
-                navigate(from, { replace: true });
-                toast.success('Successfully logged in!!!')
-                console.log(user);
+                const user = { email: res.user.email };
+                if (user) {
+                    jsonTokenAuthenticaion(user)
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            localStorage.setItem('dencareLoginToken', data.token)
+                            navigate(from, { replace: true });
+                            toast.success('Successfully logged in!!!')
+                        })
+                        .catch(err => toast.error(err.message))
+                }
             })
             .catch(error => {
                 setError(error.message);
@@ -40,9 +49,22 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         setError('');
         googleSignIn()
-            .then(() => {
-                navigate(from, { replace: true });
-                toast.success('Successfully logged in!!!')
+            .then(res => {
+                const user = {email: res.user.email};
+                if (user) {
+                    jsonTokenAuthenticaion(user)
+                        .then(res => {
+                            console.log(res);
+                            return res.json()
+                        })
+                        .then(data => {
+                            console.log(data);
+                            localStorage.setItem('dencareLoginToken', data.token)
+                            navigate(from, { replace: true });
+                            toast.success('Successfully logged in!!!')
+                        })
+                        .catch(err => toast.error(err.message))
+                }
             })
             .catch(error => {
                 setError(error.message);

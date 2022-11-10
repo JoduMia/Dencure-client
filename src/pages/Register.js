@@ -1,14 +1,16 @@
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { jsonTokenAuthenticaion } from '../API/JsonAuthentication';
 import registerPhoto from '../assets/images/register.png'
 import { AuthContext } from '../contexts/AuthProvider';
 import useTitle from '../hooks/useTitle';
 
 const Register = () => {
     useTitle('Register');
-    const {emailPassRegister} = useContext(AuthContext);
+    const { emailPassRegister } = useContext(AuthContext);
 
     //create user at firebase with email and password
     const createUser = (event) => {
@@ -20,7 +22,21 @@ const Register = () => {
 
         emailPassRegister(email, password)
             .then(res => {
-                console.log(res.user);
+                const user = { email: res.user.email };
+                if (user) {
+                    jsonTokenAuthenticaion(user)
+                        .then(res => {
+                            console.log(res);
+                            return res.json()
+                        })
+                        .then(data => {
+                            console.log(data);
+                            localStorage.setItem('dencareLoginToken', data.token)
+                            toast.success('Successfully logged in!!!')
+                        })
+                        .catch(err => toast.error(err.message))
+                }
+
             })
     };
 

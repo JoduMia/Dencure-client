@@ -16,7 +16,7 @@ export const routes = createBrowserRouter(createRoutesFromElements(
         <Route index element={<Services />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/myreviews" element={<MyReview />} />
+        <Route path="/myreviews" element={<PrivateRoutes><MyReview /></PrivateRoutes>} />
         <Route path="/addservice" element={<AddService />} />
         <Route path="/review/:id" element={<PrivateRoutes><AddReview /></PrivateRoutes>} />
         <Route path="/update/:id" element={<PrivateRoutes><UpadateReview /></PrivateRoutes>} />
