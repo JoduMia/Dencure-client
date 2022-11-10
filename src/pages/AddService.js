@@ -16,6 +16,7 @@ const AddService = () => {
         const ratings = form.rating.value;
         const photo = form.photo.value;
         const desc = form.desc.value;
+        form.reset();
         const info = {title,price, ratings,photo,desc};
 
         fetch(`https://assignment-11-server-amber.vercel.app/addservice`,{
