@@ -3,6 +3,7 @@ import AllServices from "../components/Others/AllServices";
 import Main from "../layouts/Main/Main";
 import AddReview from "../pages/AddReview";
 import AddService from "../pages/AddService";
+import Blogs from "../pages/Blogs/Blogs";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyReview from "../pages/MyReview";
@@ -19,6 +20,7 @@ export const routes = createBrowserRouter(createRoutesFromElements(
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/servicepagi" element={<ServiceWithPagi />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/myreviews" element={<PrivateRoutes><MyReview /></PrivateRoutes>} />
         <Route path="/addservice" element={<AddService />} />
         <Route path="/review/:id" element={<PrivateRoutes><AddReview /></PrivateRoutes>} />
