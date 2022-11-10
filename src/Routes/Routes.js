@@ -22,7 +22,7 @@ export const routes = createBrowserRouter(createRoutesFromElements(
         <Route path="/servicepagi" element={<ServiceWithPagi />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/myreviews" element={<PrivateRoutes><MyReview /></PrivateRoutes>} />
-        <Route path="/addservice" element={<AddService />} />
+        <Route path="/addservice" element={<PrivateRoutes><AddService /></PrivateRoutes>} />
         <Route path="/review/:id" element={<PrivateRoutes><AddReview /></PrivateRoutes>} />
         <Route path="/update/:id" element={<PrivateRoutes><UpadateReview /></PrivateRoutes>} />
 

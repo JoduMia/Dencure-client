@@ -12,7 +12,7 @@ import useTitle from '../hooks/useTitle';
 const Login = () => {
     useTitle('Login')
     const [error, setError] = useState('');
-    const { signWithEmailPass, googleSignIn, setLoading } = useContext(AuthContext);
+    const { signWithEmailPass, googleSignIn, setLoading,loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/'
@@ -77,6 +77,7 @@ const Login = () => {
 
 
     return (
+        (!loading) ?
         <div className='flex justify-center items-center md:h-screen'>
             <div className='grid md:grid-cols-2 md:px-6'>
                 <div>
@@ -112,6 +113,8 @@ const Login = () => {
                 </div>
             </div>
         </div>
+         :
+        <div>Loading....</div>
     )
 }
 

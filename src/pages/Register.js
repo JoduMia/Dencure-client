@@ -10,7 +10,7 @@ import useTitle from '../hooks/useTitle';
 
 const Register = () => {
     useTitle('Register');
-    const { emailPassRegister } = useContext(AuthContext);
+    const { emailPassRegister,loading } = useContext(AuthContext);
 
     //create user at firebase with email and password
     const createUser = (event) => {
@@ -41,6 +41,7 @@ const Register = () => {
     };
 
     return (
+        (!loading) ?
         <div className='flex justify-center items-center md:h-screen'>
             <div className='grid md:grid-cols-2 md:px-6'>
                 <div>
@@ -77,6 +78,8 @@ const Register = () => {
                 </div>
             </div>
         </div>
+        :
+        <div>Loading....</div>
     )
 }
 

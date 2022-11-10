@@ -12,7 +12,7 @@ const HomeReviews = ({ id }) => {
     const totalPages = Math.ceil(count / dataPerpage);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/allreviews/?page=${currentPage}&size=${dataPerpage}`)
+        fetch(`https://assignment-11-server-amber.vercel.app/allreviews/?page=${currentPage}&size=${dataPerpage}`)
             .then(res => res.json())
             .then(data => {
                 setCount(data.count);

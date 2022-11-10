@@ -18,7 +18,7 @@ const ServiceWithPagi = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:4000/servicewithpagi/?page=${currentPage}&size=${dataPerpage}`)
+        fetch(`https://assignment-11-server-amber.vercel.app/servicewithpagi/?page=${currentPage}&size=${dataPerpage}`)
             .then(res => res.json())
             .then(data => {
                 setCount(data.count);
